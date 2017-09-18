@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Dynamic Form</title>
+	<link rel="stylesheet" href="">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+	
+    
+	<div class="extraPersonTemplate">
+    <div class="controls controls-row">
+        <input class="span3" placeholder="First Name" type="text" name="firstname2">
+        <input class="span3" placeholder="Last Name" type="text" name="lastname2">
+        <select class="span2" name="gender2">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+    </div>
+</div>
+<div id="container"></div>
+	<script type="text/javascript">
+		$(document).ready(function () {
+     $('<div/>', {
+         'class' : 'extraPerson', html: GetHtml()
+     }).appendTo('#container'); //Get the html from template
+     $('#addRow').click(function () {
+           $('<div/>', {
+               'class' : 'extraPerson', html: GetHtml()
+     }).hide().appendTo('#container').slideDown('slow');//Get the html from template and hide and slideDown for transtion.
+
+     });
+ })
+ function GetHtml() //Get the template and update the input field names
+{
+      var len = $('.extraPerson').length;
+    var $html = $('.extraPersonTemplate').clone();
+    $html.find('[name=firstname]')[0].name="firstname" + len;
+    $html.find('[name=lastname]')[0].name="lastname" + len;
+    $html.find('[name=gender]')[0].name="gender" + len;
+    return $html.html();    
+}
+	</script>
+</body>
+</html>
