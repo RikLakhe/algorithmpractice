@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+    <script src="https://unpkg.com/react@16.5.1/umd/react.development.js"></script>
+    <!-- <script src="https://unpkg.com/react@16.5.1/umd/react.production.min.js"></script> -->
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+    <script type="text/babel">
+        const appElement = document.getElementById('app');const content='Hello World'; const myClassName='container'; const props = { className:'container', children:'Hello World' }; const message = (props) =>
+        <div>{props.msg}</div>
+        const element =(
+        <div className="container">
+            {message({msg:'hellow world'})}{message({msg:'asdfasdf world'})}{message({msg:'hellow sadfsad'})}
+        </div>
+        ); ReactDOM.render(element, appElement);
+    </script>
+</body>
+
+</html>
